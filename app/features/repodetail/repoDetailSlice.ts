@@ -8,7 +8,7 @@ interface RepoDetailState {
     error: string | null;
 }
 
-enum RepoDetailStatus {
+export enum RepoDetailStatus {
     Idle = 'idle',
     Loading = 'loading',
     Success = 'success',

@@ -10,9 +10,8 @@ export default function Index() {
   return (
     <GestureHandlerRootView style={{ flex: 1, }}>
       <StatusBar style="dark" />
-      <Provider store={store}>
-        <RepoList />
-      </Provider>
+      <RepoList />
+
     </GestureHandlerRootView>
   );
 }

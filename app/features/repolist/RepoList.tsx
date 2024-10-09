@@ -8,7 +8,7 @@ import { StyleSheet } from 'react-native';
 import { ThemedText } from "@/components/ThemedText";
 import { Repo } from "../../services/github";
 import RepoItem from "../../appcomponents/RepoItem";
-import { Link, router } from "expo-router";
+import { Link } from "expo-router";
 
 
 const USERNAME = 'cyalc';
@@ -27,7 +27,7 @@ export default function RepoList() {
         <Link
             href={{
                 pathname: '/features/repodetail/RepoDetail',
-                params: { id: item.id }
+                params: { id: item.id.toString() }
             }}>
             <RepoItem name={item.name} stars={item.stargazers_count} language={item.language} />
         </Link>
