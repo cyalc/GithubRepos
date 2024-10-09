@@ -1,9 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-import repoListReducer from './repolist/repoListSlice';
-
+import repoListReducer from './features/repolist/repoListSlice';
+import repoDetailReducer from './features/repodetail/repoDetailSlice';
 export const store = configureStore({
     reducer: {
         repoList: repoListReducer,
+        repoDetail: repoDetailReducer,
     },
 });
 

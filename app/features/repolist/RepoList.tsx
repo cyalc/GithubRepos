@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchRepos, RepoListStatus, selectRepoListState } from "./repoListSlice";
-import { AppDispatch } from "../store";
+import { AppDispatch } from "../../store";
 import { ActivityIndicator, FlatList } from "react-native";
 import { ThemedView } from "@/components/ThemedView";
 import { StyleSheet } from 'react-native';
 import { ThemedText } from "@/components/ThemedText";
-import { Repo } from "../services/github";
-import RepoItem from "../appcomponents/RepoItem";
+import { Repo } from "../../services/github";
+import RepoItem from "../../appcomponents/RepoItem";
+import { Link, router } from "expo-router";
 
 
 const USERNAME = 'cyalc';
@@ -21,8 +22,16 @@ export default function RepoList() {
         dispatch(fetchRepos(userName));
     }, [userName]);
 
+
     const renderItem = ({ item }: { item: Repo }) => (
-        <RepoItem name={item.name} stars={item.stargazers_count} language={item.language} />
+        <Link
+            href={{
+                pathname: '/features/repodetail/RepoDetail',
+                params: { id: item.id }
+            }}>
+            <RepoItem name={item.name} stars={item.stargazers_count} language={item.language} />
+        </Link>
+
     );
 
     return (

@@ -18,3 +18,8 @@ export async function getRepos(username: string): Promise<Repo[]> {
     const response = await apiClient.get<Repo[]>(`/users/${username}/repos`);
     return response.data;
 }
+
+export async function getSingleRepo(repoId: string): Promise<Repo> {
+    const response = await apiClient.get<Repo>(`/repositories/${repoId}`);
+    return response.data;
+}

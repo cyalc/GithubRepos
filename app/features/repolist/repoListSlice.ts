@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { getRepos, Repo } from "../services/github";
-import { RootState } from "../store";
+import { getRepos, Repo } from "../../services/github";
+import { RootState } from "../../store";
 
 interface RepoListState {
     repos: Repo[];
