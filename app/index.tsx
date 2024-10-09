@@ -1,21 +1,18 @@
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import App from "./pages/App";
+import RepoList from "./repolist/RepoList";
+import { Provider } from "react-redux";
+import { store } from "./store";
 
 
 export default function Index() {
   return (
-
-    <GestureHandlerRootView style={
-      {
-        flex: 1,
-      }}>
-
+    <GestureHandlerRootView style={{ flex: 1, }}>
       <StatusBar style="dark" />
-
-      <App />
-
+      <Provider store={store}>
+        <RepoList />
+      </Provider>
     </GestureHandlerRootView>
   );
 }
