@@ -28,7 +28,7 @@ export default function RepoDetail() {
     }, [id]);
 
     return (
-        <ThemedView>
+        <ThemedView style={styles.container}>
             {status === RepoDetailStatus.Loading && <ActivityIndicator size="large" color="#0a7ea4" />}
             {status === RepoDetailStatus.Fail && <ThemedText style={styles.errorText}>Error: {error}</ThemedText>}
             {status === RepoDetailStatus.Success && repo &&
@@ -43,7 +43,7 @@ export default function RepoDetail() {
 
 function InnerRepoDetail({ name, stars, language }: InnerRepoDetailProps) {
     return (
-        <ThemedView style={styles.container}>
+        <ThemedView>
             <ThemedText type='title'>{name}</ThemedText>
             <ThemedView style={styles.space} />
             <ThemedText type="small">{stars} stars</ThemedText>
