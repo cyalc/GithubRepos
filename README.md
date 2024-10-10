@@ -1,50 +1,68 @@
-# Welcome to your Expo app 👋
+# GitHub Repos App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A React Native application to browse GitHub repositories using Expo and Redux.
 
-## Get started
+## Features
 
-1. Install dependencies
+- View a list of GitHub repositories
+- See detailed information about a specific repository
+- Responsive design with light and dark mode support
 
-   ```bash
+## Technologies Used
+
+- React Native
+- Expo
+- Redux Toolkit
+- React Navigation
+- Axios
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js
+- npm or yarn
+- Expo CLI
+
+### Installation
+
+1. Clone the repository
+2. Install dependencies:
+   ```
    npm install
    ```
-
-2. Start the app
-
-   ```bash
-    npx expo start
+   or
+   ```
+   yarn install
    ```
 
-In the output, you'll find options to open the app in a
+3. Start the Expo development server:
+   ```
+   npm start
+   ```
+   or
+   ```
+   yarn start
+   ```
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+4. Use the Expo Go app on your mobile device or an emulator to run the application.
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## Project Structure
 
-## Get a fresh project
+- `app/`: Main application code
+  - `features/`: Feature-specific components and logic
+  - `services/`: API services
+  - `store.ts`: Redux store configuration
+- `components/`: Reusable UI components
+- `constants/`: App-wide constants
+- `hooks/`: Custom React hooks
 
-When you're ready, run:
+## Testing
 
-```bash
-npm run reset-project
+Run tests using:
 ```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+npm test
+```
+or
+```
+yarn test
