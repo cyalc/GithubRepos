@@ -1,14 +1,39 @@
-import { store } from "@/app/store";
-import { render, RenderOptions } from "@testing-library/react-native";
-import { Provider } from "react-redux";
+// This test utility is adapted from the official Redux documentation:
+// https://redux.js.org/usage/writing-tests
 
-const AllTheProviders = ({ children }: { children: React.ReactNode }) => {
-    return <Provider store={store}> {children} </Provider>;
-};
 
-const customRender = (ui: React.ReactElement, options?: Omit<RenderOptions, 'wrapper'>) =>
-    render(ui, { wrapper: AllTheProviders, ...options });
+import { AppStore, RootState, setupStore } from '@/app/store'
+import { render, type RenderOptions } from '@testing-library/react-native'
+import { PropsWithChildren } from 'react'
+import { Provider } from 'react-redux'
+
+
+interface ExtendedRenderOptions extends Omit<RenderOptions, 'queries'> {
+    preloadedState?: Partial<RootState>
+    store?: AppStore
+}
+
+export function renderWithProviders(
+    ui: React.ReactElement,
+    extendedRenderOptions: ExtendedRenderOptions = {}
+) {
+    const {
+        preloadedState = {},
+        // Automatically create a store instance if no store was passed in
+        store = setupStore(preloadedState),
+        ...renderOptions
+    } = extendedRenderOptions
+
+    const Wrapper = ({ children }: PropsWithChildren) => (
+        <Provider store={store}>{children}</Provider>
+    )
+
+    return {
+        store,
+        ...render(ui, { wrapper: Wrapper, ...renderOptions })
+    }
+}
 
 export * from '@testing-library/react-native'
 
-export { customRender as render };
+export { renderWithProviders as render };

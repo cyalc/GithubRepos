@@ -1,4 +1,4 @@
-import { render, screen, waitFor } from '@/utils/test-utils';
+import { render, renderWithProviders, screen, waitFor } from '@/utils/test-utils';
 import RepoList from '../repolist/RepoList';
 import * as githubService from '../../services/github';
 import { RepoListStatus } from '../repolist/repoListSlice';
@@ -26,7 +26,7 @@ describe('RepoList', () => {
         (githubService.getRepos as jest.Mock).mockResolvedValue(mockRepos);
 
 
-        render(
+        renderWithProviders(
             <RepoList />
         );
 
@@ -45,7 +45,7 @@ describe('RepoList', () => {
         (githubService.getRepos as jest.Mock).mockRejectedValue(new Error('API Error'));
 
 
-        render(
+        renderWithProviders(
             <RepoList />
         );
 
@@ -63,7 +63,7 @@ describe('RepoList', () => {
         (githubService.getRepos as jest.Mock).mockResolvedValue([]);
 
 
-        render(
+        renderWithProviders(
             <RepoList />
         );
 
