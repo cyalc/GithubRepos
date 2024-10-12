@@ -36,7 +36,7 @@ export default function RepoList() {
 
     return (
         <ThemedView style={styles.container}>
-            {status === RepoListStatus.Loading && <ActivityIndicator size="large" color="#0a7ea4" />}
+            {status === RepoListStatus.Loading && <ActivityIndicator testID="activity-indicator" size="large" color="#0a7ea4" />}
             {status === RepoListStatus.Fail && <ThemedText style={styles.errorText}>Error: {error}</ThemedText>}
             {status === RepoListStatus.Success && <FlatList
                 data={repos}
